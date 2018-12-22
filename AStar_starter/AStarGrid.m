@@ -113,14 +113,11 @@ while true
     Subscripts = removeVisitedSubscripts(map, Subscripts);
     
     g(Subscripts) = numExpanded;
+    newSubscripts = removeNotMinSubscripts(g, H, Subscripts);
     
-    
-    [Subscripts, bestSubscript] = removeNotMinSubscripts(g, H, Subscripts);
-    
-    f(Subscripts) = g(Subscripts) + H(Subscripts);
-    f(bestSubscript) = f(bestSubscript) - 0.1;
-    parent(Subscripts) = sub2ind(size(map), i, j);
-    map(Subscripts) = red;
+    f(newSubscripts) = g(newSubscripts) + H(newSubscripts);
+    parent(newSubscripts) = sub2ind(size(map), i, j);
+    map(Subscripts)    = red;
     
    % *********************************************************************
     

@@ -1,4 +1,4 @@
-function [newSubscripts, bestSubscript] = removeNotMinSubscripts(g, H, Subscripts)
+function newSubscripts = removeNotMinSubscripts(g, H, Subscripts)
 % ======================================================================
 %                                 Lab 6
 % 
@@ -8,20 +8,7 @@ function [newSubscripts, bestSubscript] = removeNotMinSubscripts(g, H, Subscript
 % that bigger than min their sum 
 % ======================================================================
 
-
-[~,iMin] = min(g(Subscripts) + H(Subscripts));
-
-bestSubscript = Subscripts(iMin);
-
-
 partF = g(Subscripts) + H(Subscripts);
 minF  = min(partF);
 
 newSubscripts = Subscripts(partF==minF);
-
-
-% if length(Subscripts) >= 3
-%     newSubscripts = newSubscripts1;
-% else
-%     newSubscripts = newSubscripts2;
-% end
